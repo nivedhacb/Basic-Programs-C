@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include <stdlib.h>
+int power(int nod)
+{
+ int result=1;
+    while(nod)
+    {
+        result=result*10;
+        nod=nod-1;
+     
+    }
+    return result;
+}
+
+int main()
+{
+int N,nosDigits=0,Total=0,stepTotal,toSub=0,rem=0,safe=0;
+scanf("%d",&N);
+stepTotal=N;
+if(N<10)
+{
+    Total=N;
+    printf("%d",Total);
+    return 0;
+}
+
+else
+{
+    
+    toSub=N;
+    while(toSub>0)
+    {
+        
+        
+        safe=toSub;
+        nosDigits=0;
+       // printf("Now considering safe=%d\n",safe);
+        while(safe!=0)
+        {
+            rem=safe%10;
+            nosDigits++;
+            safe=safe/10;
+        }
+         if(stepTotal<N)
+        {
+            stepTotal=toSub;
+        }
+       // printf("No of digits=%d \n",nosDigits);
+        toSub=(power(nosDigits-1))-1;
+        //printf("toSub=%d\n",toSub);
+       
+        if(toSub>0)
+        {
+       
+        
+        stepTotal=stepTotal-toSub;
+        //printf("(%d - %d )-->stepTotal=%d---->stepTotal*nod=(%d)\n",stepTotal+toSub,toSub,stepTotal,(stepTotal*nosDigits));
+        Total=Total+(stepTotal*nosDigits);
+        //printf("Total1=%d\n",Total);
+        }
+        else
+        {
+            Total=Total+9;
+            break;
+            
+        }
+       
+    }
+}
+ printf("FinalTotal=%d\n",Total);
+
+}

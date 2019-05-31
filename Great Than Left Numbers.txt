@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+int N,index,index2,lessOnLeft=0;
+scanf("%d",&N);
+int arr[N];
+for(index=0;index<N;index++)
+{
+    scanf("%d",&arr[index]);
+}
+printf("%d\t",arr[0]);
+for(index=1;index<N;index++)
+{
+    for(index2=0;index2<index;index2++)
+    {
+        if(arr[index]>arr[index2])
+        {
+            lessOnLeft++;
+           // printf("%d >%d\n",arr[index],arr[index2]);
+        }
+    }
+    //printf("For arr[%d]=%d --->LessOnLeft=%d\n",index,arr[index],lessOnLeft);
+    if(lessOnLeft==index)
+    {
+        printf("%d\t",arr[index]);
+    }
+    lessOnLeft=0;
+}
+}

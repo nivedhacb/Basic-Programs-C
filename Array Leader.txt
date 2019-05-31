@@ -1,0 +1,52 @@
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *arr,n=9999,*newarr;
+    int index1,index2,count=0,greatOnRight=0;
+    arr=(int*)calloc(n,sizeof(int));
+    for(index1=0;index1<n;index1++)
+    {
+        scanf("%d",(arr+index1));
+        
+    }
+    /*while(arr[index2])
+    {
+        count++;
+        index2++;
+    }*/
+   // count=sizeof(arr)/sizeof(int);
+   
+   
+    for(index1=0;index1<n;index1++)
+    {
+        if(*(arr+index1)!=0 && *(arr+index1+1)!=0)
+        {
+            count++;
+        }
+    }
+    count++;
+    for(index1=0;index1<count;index1++)
+    {
+        for(index2=index1+1;index2<count;index2++)
+        {
+            
+            if((*(arr+index1))>(*(arr+index2)))
+            {
+                greatOnRight++;
+                
+            }
+            
+        }
+        
+        if(greatOnRight==count-index1-1)
+        {
+            printf("%d ",*(arr+index1));
+        }
+        greatOnRight=0;
+    }
+    return 0;
+
+}

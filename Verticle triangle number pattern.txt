@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+int N,index1,index2=0,EndNo=1,safe,count=1,newsafe;
+scanf("%d",&N);
+index1=N;
+safe=N;
+newsafe=N;
+while(index1>1)
+{
+    EndNo=EndNo+index1;
+    index1--;
+}
+//printf("endno=%d\n",EndNo);
+count=1;
+for(index1=1;index1<=N;index1++)
+{
+    count=index1;
+    for(index2=newsafe;index2>=1;index2--)
+    {
+        printf("%d\t",count);
+        count=count+safe;
+        safe--;
+    }
+    safe=N;
+    newsafe--;
+    
+    printf("\n");
+}
+
+}
