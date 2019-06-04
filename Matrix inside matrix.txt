@@ -1,0 +1,84 @@
+#include<stdio.h>
+int main()
+{
+    int N,M,row,col,m1[20][20],m2[19][19],index1,index2,duprow,dupcol,count,safe;
+    scanf("%d %d",&N,&M);
+    duprow=0;
+    dupcol=1;
+    count=1;
+    for(row=0;row<N;row++)
+    {
+        for(col=0;col<N;col++)
+        {
+            scanf("%d",&m1[row][col]);
+        }
+    }
+    for(row=0;row<M;row++)
+    {
+        for(col=0;col<M;col++)
+        {
+            scanf("%d",&m2[row][col]);
+        }
+    }
+    for(row=0;row<N;row++)
+    {
+       
+    for(col=0;col<N;col++)
+        {
+           collabel:if(m1[row][col]==m2[0][0])
+            {
+             // printf("m1[%d][%d]=%d ==m2[0][0]=%d\n",row,col,m1[row][col],m2[0][0]);
+              safe=col;
+              for(index1=row;index1<N;index1++)
+              {
+                  
+                 // printf("index1=%d\n",index1);
+               for(index2=safe+1;index2<N;index2++)
+               {
+                 
+                 //printf("index2=%d\n",index2);
+                 if(duprow<M && dupcol<M)
+                 {
+                  if(m1[index1][index2]==m2[duprow][dupcol])
+                  {
+                      //printf("IF m1[%d][%d]=%d ==m2[%d][%d]=%d\n",index1,index2,m1[index1][index2],duprow,dupcol,m2[duprow][dupcol]);
+                      count++;
+                      dupcol++;
+                      
+                      //printf("safe=%d\n",safe);
+                  }
+                  else
+                  {
+                     // printf("ELSE m1[%d][%d]=%d ==m2[%d][%d]=%d\n",index1,index2,m1[index1][index2],duprow,dupcol,m2[duprow][dupcol]);
+                      col++;
+                      goto collabel;
+                      
+                  }
+                 }
+               }
+              safe=col-1;
+               
+               
+               duprow++;
+               dupcol=0;
+                  
+              }
+            }
+            else
+            {
+                continue;
+            }
+            
+        }
+    }
+    if(count==M*M)
+    {
+        printf("YES");
+    }
+    else
+    {
+        printf("NO");
+    }
+    
+    
+}

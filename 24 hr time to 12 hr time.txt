@@ -1,0 +1,27 @@
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int hr,min,time;
+    char str[3]="AM";
+    scanf("%d",&time);
+    hr=time/100;
+    min=time%100;
+    if(hr==0)
+    {
+        hr=12;
+    }
+    else if(hr==12)
+    {
+        str[0]='P';   
+    }
+    else if(hr>=12)
+    {
+        hr=hr-12;
+        str[0]='P';
+    }
+    printf("%02d:%02d %s",hr,min,str);
+
+}

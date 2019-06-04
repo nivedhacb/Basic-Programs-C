@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+    char str[100],start[100],end[100];
+    int row,col,index,length,mid,index1;
+    scanf("%s",&str);
+    length=strlen(str);
+    mid=(length/2);
+    //printf("Length=%d",length);
+    /*for(index=0;index<mid;index++)
+    {
+        start[index]=str[index];
+       // printf("%c\t",start[index]);
+    }
+    for(index=mid;index<length;index++)
+    {
+        end[index]=str[index];
+        //
+    }*/
+    for(index=0;index<=mid;index++)
+    {
+        end[index]=str[mid+index];
+        //printf("%c ",end[index]);
+        
+    }
+    for(index=mid+1;index<length;index++)
+    {
+        end[index]=str[index-mid-1];
+               // printf("%c ",end[index]);
+    }
+    
+    printf("\n");
+    for(row=0;row<length;row++)
+    {
+        index=0;
+       // index1=0;
+        for(col=0;col<length;col++)
+        {
+            if(col<length-row-1)
+            {
+                printf("*");
+            }
+            else
+            {
+                if(row<=length)
+                {
+                    printf("%c",end[index]);
+                    index++;
+                    
+                    
+                }
+                
+            
+            }
+            
+        }
+        printf("\n");
+    }
+}

@@ -1,0 +1,1 @@
+#include<stdio.h>#include <stdlib.h>int main(){int N,arr[1000],K,index;scanf("%d",&N);for(index=0;index<N;index++){scanf("%d",&arr[index]);}scanf("%d",&K);for(index=K-1;index>=0;index--){if(arr[index]>0){arr[index]=0-arr[index];}else{arr[index]=(-1)*arr[index];}}}

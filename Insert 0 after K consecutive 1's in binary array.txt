@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int N,index,j=0,arr[1000],nos1,count=0;
+    scanf("%d %d",&N,&nos1);
+    for(index=0;index<N;index++)
+    {
+        scanf("%d ",&arr[index]);
+    }
+    for(index=0;index<N;index++)
+    {
+        if(arr[index]==1)
+        {
+            count++;
+        }
+        else
+        {
+            count=0;
+        }
+        if(count==nos1)
+        {
+            N++;
+            for(j=N-1;j>index;j--)  //copies the elements upto i
+			{
+				arr[j]=arr[j-1];
+			}
+			arr[index+1]=0;
+        }
+        
+    }
+
+    for(index=0;index<N;index++)
+    {
+        printf("%d ",arr[index]);
+    }
+   
+
+
+}

@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int main()
+{
+    char str[100],modstr[100],a,e,i,o,u;
+    int index,index2=0,count=0;
+    scanf("%s",&str);
+    a='a';
+    e='e';
+    i='i';
+    o='o';
+    u='u';
+    for(index=0;index<strlen(str);index++)
+    {
+      if(str[index]!=a && str[index]!=e &&str[index]!=i&&str[index]!=o &&str[index] !=u)
+      {
+         
+          if(str[index+1]!=a &&str[index+1]!=e &&str[index+1]!=i &&str[index+1]!=o&& str[index+1]!=u)
+          { 
+            printf("IF 2 both str[%d]=%c and str[%d]=%c are consonents\n",index,str[index],index+1,str[index+1]);
+             index++;
+             continue;
+          }
+          else
+          {
+              if(index>=1 && (str[index-1]==a ||str[index-1]==e|| str[index-1]==i ||str[index-1]==o|| str[index-1]==u))
+              { 
+              printf("ELSE 2 str[%d]=%c  is consonent but not str[%d]=%c\n",index,str[index],index+1,str[index+1]);
+              modstr[index2]=str[index];
+             printf("\n modstr[%d]=%c\n",index2,modstr[index2]);
+              index2++;
+              count++;
+              }
+              else if (index>=1 &&(str[index-1]!=a &&str[index-1]!=e &&str[index-1]!=i &&str[index-1]!=o&& str[index-1]!=u))
+              {
+                  continue;
+              }
+              else
+              {
+                  modstr[index2]=str[index];
+                  index2++;
+                  continue;
+              }
+              
+          }
+      }
+      else
+      {
+          printf("ELSE 1 str[%d] is %c\n",index,str[index]);
+          modstr[index2]=str[index];
+        printf("\n modstr[%d]=%c\n",index2,modstr[index2]);
+          index2++;
+      }
+    }
+    printf("%s",modstr);
+
+    
+
+
+}
